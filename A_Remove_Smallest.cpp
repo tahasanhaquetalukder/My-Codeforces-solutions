@@ -1,20 +1,32 @@
 #include<bits/stdc++.h>
 using namespace std;
-void array(int arr[], int n)
-{
-    for(int i=0;i<n;i++)
-    {
-        for(int j=1;j<i;j++)
-        {
-            if()
-        }
-    }
-}
 int main()
 {
-    int n;
-    cin>>n;
+    int t;
+    cin >> t;
+    while(t--)
     {
-
+        int n;
+        cin >> n;
+        vector<int> arr(n);
+        for(int i = 0; i < n; i++)
+        {
+            cin >> arr[i];
+        }
+        sort(arr.begin(), arr.end());
+        bool ok = true;
+        for(int i = 1; i < n; i++)
+        {
+            if(arr[i] - arr[i-1] > 1)
+            {
+                ok = false;
+                break;
+            }
+        }
+        if(ok)
+            cout << "YES" << endl;
+        else
+            cout << "NO" << endl;
     }
+    return 0;
 }
