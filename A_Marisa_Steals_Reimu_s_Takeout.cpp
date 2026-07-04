@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+
+    while(t--)
+    {
+        int n;
+        cin >> n;
+
+        int c0 = 0, c1 = 0, c2 = 0;
+
+        for(int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+
+            if(x == 0) c0++;
+            else if(x == 1) c1++;
+            else c2++;
+        }
+
+        int ans = 0;
+
+        // all 0 individually
+        ans += c0;
+
+        // pair 1 and 2
+        int p = min(c1, c2);
+        ans += p;
+
+        c1 -= p;
+        c2 -= p;
+
+        // remaining triples
+        ans += c1 / 3;
+        ans += c2 / 3;
+
+        cout << ans << endl;
+    }
+
+    return 0;
+}
