@@ -1,22 +1,21 @@
 #include <bits/stdc++.h>
 using namespace std;
-int marge(int n,int m)
+int zero_count(int n)
 {
-    int n1=n;
-    int size=0;
-    while(n!=0)
+    int m=0;
+    while(n%10==0)
     {
-        size++;
+        m++;
         n=n/10;
     }
-    int mrg=(m*size)+n1;
+    return m;
 }
-int reverse(int n)
+int digit_count(int n)
 {
     int m=0;
     while(n!=0)
     {
-        m=m*10+n%10;
+        m++;
         n=n/10;
     }
     return m;
@@ -25,38 +24,37 @@ void solution()
 {
     int n,m;
     cin>>n>>m;
-    vector<int>arr(n);
-    for(int i=0;i<n;i++)cin>>arr[i];
-    int i=0;
-    while (i<n)
+    vector< pair<int,int>>par;
+    while(n--)
     {
-        if(arr.size()==1)
-        {
-            int k=pow(10,m);
-            if(arr[0]<!k)
-            {
-                cout<<"Sasha"<<endl;
-            }
-            else{
-                cout<<"Anna"<<endl;
-            }
-            break;
-        }
-        else if(i%2==0)
-        {
-            arr[0]=reverse(arr[0]);
-        }
-        else
-        {
-            int k=marge(arr[0],arr[1]);
-            arr.erase(arr.begin()+1);
-            arr.push_back(k);
-        }
-        i++;
-    } 
-    
-}
+        int k;
+        cin>>k;
+        int dig=digit_count(k);
+        int zero=zero_count(k);
+        par.emplace_back(zero,dig);
+    }
+    sort(par.rbegin(),par.rend());
+    for(int i=0;i<par.size();i=i+2)
+    {
+       par[i].second=par[i].second-par[i].first;
+    }
+    int cnt=0;
+    for(auto it: par)
+    {
+        cnt+=it.second;
+    }
+    if(cnt<=m)
+    {
+        cout<<"Anna"<<endl;
+    }
+    else
+    {
+        cout<<"Sasha"<<endl;
+    }
 
+
+
+}
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);

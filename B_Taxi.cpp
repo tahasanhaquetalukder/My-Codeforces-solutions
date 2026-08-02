@@ -29,9 +29,9 @@ int main() {
     int n;
     cin>>n;
     int m=0;
-    while(n!=0)
+    while(n%10==0)
     {
-        m=m*10+n%10;
+        m++;
         n=n/10;
     }
     cout<<m<<endl;
