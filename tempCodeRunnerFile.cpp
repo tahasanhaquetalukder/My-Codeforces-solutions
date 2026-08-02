@@ -1,30 +1,18 @@
-#include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
-int main()
-{
-    int n;
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    string n ;
     cin>>n;
-    int arr[n];
-    for(int i=0;i<n;i++)
+    sort(n.begin(),n.end());
+    int sum=0;
+    do
     {
-    cin>>arr[i];
-    }
-    int total=0;
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<n-1;j++)
-        {
-            if(arr[i]>arr[j+1])
-            {
-                swap(arr[i],arr[j]);
-                total++;
-            }
-        }
-    }
-   // cout<<total<<endl;
-   for(int i=0;i<n;i++)
-    {
-    cout<<arr[i];
-    }
+        sum=sum+stoi(n);
+    } while (next_permutation(n.begin(),n.end()));
+    cout<<sum<<endl;
+
+    return 0;
 }

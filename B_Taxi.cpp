@@ -1,22 +1,39 @@
-#include<bits/stdc++.h>
+// #include<bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int n;
+//     cin>>n;
+//     int arr[n];
+//     int sum=0;
+//     for(int &a: arr)
+//     {
+//         cin>>a;
+//         sum+=a;
+//     }
+//     if(sum%4==0)
+//     {
+//         cout<<sum/4<<endl;
+//     }
+//     else{
+//         cout<<(sum/4)+1<<endl;
+//     }
+//     return 0;
+// }
+#include <bits/stdc++.h>
 using namespace std;
-int main()
-{
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int n;
     cin>>n;
-    int arr[n];
-    int sum=0;
-    for(int &a: arr)
+    int m=0;
+    while(n!=0)
     {
-        cin>>a;
-        sum+=a;
+        m=m*10+n%10;
+        n=n/10;
     }
-    if(sum%4==0)
-    {
-        cout<<sum/4<<endl;
-    }
-    else{
-        cout<<(sum/4)+1<<endl;
-    }
+    cout<<m<<endl;
     return 0;
-}
+} 
