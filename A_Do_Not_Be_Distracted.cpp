@@ -1,20 +1,14 @@
 #include <bits/stdc++.h>
 using namespace std;
-void solution()
+int main()
 {
-    string s;
-    cin>> s;
-
-}
-int main() {
-    ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-
     int t;
     cin >> t;
-    while (t--) {
-        solution();
+    while(t--)
+    {
+        long long n,m;
+        cin>>n>>m;
+        cout<<(n*m+1)/2<<endl;
     }
-
-    return 0;
 }
+//suuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
